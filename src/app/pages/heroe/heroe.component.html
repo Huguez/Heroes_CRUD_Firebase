@@ -1,0 +1,56 @@
+<h1>Heroe
+    <small> Nombre del Heroe </small>
+</h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-danger" routerLink="/heroes">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+            <div class="form-group">
+                <label>FireBase ID: </label>
+                <input type="text" [(ngModel)]="heroe.id" name="id" class="form-control" disabled="disabled">
+                <small class="form-text text-muted">Este campo es autogenerado.</small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre: </label>
+                <input placeholder="Nombre del Heroe" [(ngModel)]="heroe.nombre" name="nombre" type="text" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Poder del Heroe:</label>
+                <input placeholder="Poder del Heroe" type="text" [(ngModel)]="heroe.poder" name="poder" class="form-control" required>
+            </div>
+
+            <div class="form-group text-center">
+                <label>Estado</label>
+                <br>
+                <button *ngIf="heroe.vivo" (click)="heroe.vivo = false" class="btn btn-outline-success w-25" type="button">
+                    <i class="fa fa-smile-o"></i>
+                    Vivo
+                </button> &nbsp;
+                <button *ngIf="!heroe.vivo" (click)="heroe.vivo = true" class="btn btn-outline-danger w-25" type="button">
+                    <i class='fa fa-frown-o '></i>
+                    Muerto
+                </button>
+                <hr>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary w-50">
+                        <i class="fa fa-save">
+                            Guardar
+                        </i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
