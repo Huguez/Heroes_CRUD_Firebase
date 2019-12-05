@@ -6,7 +6,8 @@ import { HeroeComponent } from './pages/heroe/heroe.component';
 const routes : Routes = [
   { path: 'heroes', component: HeroesComponent },
   { path: 'heroe/:id', component: HeroeComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'heroe' }
+  { path: '**', pathMatch: 'full', redirectTo: 'heroe' },
+  { path: '', pathMatch: 'full', redirectTo: 'heroes' }
 ];
 
 @NgModule({
